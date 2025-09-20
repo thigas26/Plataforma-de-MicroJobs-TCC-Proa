@@ -22,7 +22,6 @@
     --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* Dark Mode */
 body.dark {
     --background: #121212;
     --surface: #1e1e1e;
@@ -50,7 +49,6 @@ body {
     position: relative;
 }
 
-/* Partículas em todo o site*/
 body::before {
     content: '';
     position: fixed;
@@ -131,7 +129,6 @@ header {
     transition: all 0.3s ease;
 }
 
-/* Header dark mode */
 body.dark header {
     background: rgba(18, 18, 18, 0.95);
     border-bottom: 1px solid rgba(76, 175, 80, 0.2);
@@ -221,7 +218,6 @@ body.dark header.scrolled {
     transition: background 0.3s ease;
 }
 
-/* Hero dark mode */
 body.dark .hero {
     background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
 }
