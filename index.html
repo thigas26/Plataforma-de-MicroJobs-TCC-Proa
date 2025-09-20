@@ -19,21 +19,29 @@
                 <ul class="nav-links">
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#Microjobs">Microjobs</a></li>
-                    <li><a href="#Freelancers">Freelancers</a></li>
-                    <li><a href="#Contato">Contato</a></li>
+                    <li><a href="#freelancers">Freelancers</a></li>
+                    <li><a href="#contato">Contato</a></li>
                     <li><a href="#Login">Login</a></li>
                 </ul>
             </nav>
+            <div class="auth-buttons">
+                <a href="#" class="btn-login">
+                    <i class="fas fa-user"></i> Login
+                </a>
+                <button id="dark-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
     </header>
 
     <nav>
         <ul class="nav-links">
-            <li><a href="#inicio">InÃ­cio</a></li>
+            <li><a href="#inicio">Início</a></li>
             <li><a href="#Microjobs">Microjobs</a></li>
-            <li><a href="#Freelancers">Freelancers</a></li>
-            <li><a href="#Contato">Contato</a></li>
-              <li><a href="#Login">Login</a></li>
+            <li><a href="#freelancers">Freelancers</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#Login">Login</a></li>
         </ul>
     </nav>
     <div class="auth-buttons">
@@ -60,6 +68,7 @@
 
     <section class="section fade-in" id="Microjobs">
         <h2 class="section-title">Microjobs em Destaque</h2>
+
         <div class="cards-grid">
             <div class="card">
                 <i class="fas fa-palette card-icon"></i>
@@ -142,11 +151,22 @@
                 <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
+
+            <form class="contact-form">
+                <h3>Entre em Contato</h3>
+                <input type="text" id="nomeContato" placeholder="Seu nome" required>
+                <input type="email" id="emailContato" placeholder="Seu e-mail" required>
+                <textarea id="mensagemContato" rows="4" placeholder="Sua mensagem" required></textarea>
+                <button type="submit" class="btn-card">
+                    <i class="fas fa-paper-plane"></i> Enviar
+                </button>
+            </form>
+
             <p class="footer-text">© 2025 MicroJobs. Conectando talentos ao futuro.</p>
         </div>
     </footer>
 
-    
+
     <script src="script.js"></script>
 </body>
 
