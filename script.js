@@ -294,28 +294,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+// Dark mode toggle
 const darkToggle = document.getElementById("dark-toggle");
 if (darkToggle) {
     darkToggle.addEventListener("click", () => {
         document.body.classList.toggle("dark");
         const isDark = document.body.classList.contains("dark");
 
+        // Trocar ícone
         const icon = darkToggle.querySelector('i');
         icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
 
+        // Salvar preferência
         localStorage.setItem("darkMode", isDark);
     });
 
+    // Carregar preferência salva
     if (localStorage.getItem("darkMode") === "true") {
         document.body.classList.add("dark");
         darkToggle.querySelector('i').className = 'fas fa-sun';
     }
 }
 
+// Validação de email
 function validarEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
 }
 
+// Validação em tempo real
 function setupFormValidation() {
     document.querySelectorAll("input").forEach(input => {
         input.addEventListener("input", () => {
@@ -330,6 +337,7 @@ function setupFormValidation() {
     });
 }
 
+// Formulário de contato
 const contatoForm = document.querySelector(".contact-form");
 if (contatoForm) {
     contatoForm.addEventListener("submit", (e) => {
@@ -344,6 +352,7 @@ if (contatoForm) {
             return;
         }
 
+        // Simulação de envio
         const button = e.target.querySelector('button');
         const originalText = button.innerHTML;
         button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
@@ -358,6 +367,7 @@ if (contatoForm) {
     });
 }
 
+// Dados dinâmicos para jobs adicionais
 const jobsExtras = [
     {
         titulo: "E-commerce Completo",
@@ -397,6 +407,7 @@ const jobsExtras = [
     }
 ];
 
+// Adicionar funcionalidade de busca
 function adicionarBusca() {
     const searchHTML = `
         <div style="text-align: center; margin-bottom: 2rem;">
@@ -418,6 +429,7 @@ function adicionarBusca() {
     if (jobsSection) {
         jobsSection.insertAdjacentHTML('beforebegin', searchHTML);
 
+        // Obter todos os jobs (originais + extras)
         const allJobs = [];
         const existingCards = jobsSection.querySelectorAll('.card');
 
@@ -430,6 +442,7 @@ function adicionarBusca() {
             allJobs.push({ titulo, desc, preco, icon });
         });
 
+        // Adicionar jobs extras
         jobsExtras.forEach(job => allJobs.push(job));
 
         const searchInput = document.getElementById('search-jobs');
@@ -441,7 +454,7 @@ function adicionarBusca() {
             );
 
             if (searchTerm === '') {
-
+                // Restaurar jobs originais
                 jobsSection.innerHTML = `
                     <div class="card">
                         <i class="fas fa-palette card-icon"></i>
@@ -481,19 +494,22 @@ function adicionarBusca() {
                 }
             }
 
+            // Reconfigurar efeitos nos novos cards
             setupCardEffects();
         });
     }
 }
 
+// Configurar efeitos nos cards
 function setupCardEffects() {
     const cards = document.querySelectorAll('.card, .freelancer-card');
     cards.forEach(card => {
-
+        // Remover listeners anteriores (se existirem)
         const newCard = card.cloneNode(true);
         card.parentNode.replaceChild(newCard, card);
     });
 
+    // Adicionar novos listeners
     document.querySelectorAll('.card, .freelancer-card').forEach(card => {
         card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -505,32 +521,39 @@ function setupCardEffects() {
     });
 }
 
+// Função melhorada para criar mais partículas dinâmicas
 function createAdvancedParticles() {
     const container = document.getElementById('particles');
     if (!container) return;
 
+    // Limpar partículas existentes
     container.innerHTML = '';
 
     for (let i = 0; i < 60; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
 
+        // Posicionamento aleatório
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
 
+        // Tamanhos variados
         const size = Math.random() * 4 + 2;
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
 
+        // Delays e durações aleatórias
         particle.style.animationDelay = Math.random() * 10 + 's';
         particle.style.animationDuration = (Math.random() * 6 + 4) + 's';
 
+        // Opacidade variada
         particle.style.opacity = Math.random() * 0.6 + 0.2;
 
         container.appendChild(particle);
     }
 }
 
+// Scroll to top button
 function addScrollToTop() {
     const scrollButton = document.createElement('button');
     scrollButton.innerHTML = '<i class="fas fa-chevron-up"></i>';
@@ -566,23 +589,29 @@ function addScrollToTop() {
     });
 }
 
+// Initialize new features
 document.addEventListener('DOMContentLoaded', function () {
-
+    // Criar partículas melhoradas
     createAdvancedParticles();
 
+    // Configurar validação de formulários
     setupFormValidation();
 
+    // Adicionar busca após um pequeno delay
     setTimeout(() => {
         adicionarBusca();
     }, 100);
 
+    // Adicionar scroll to top
     addScrollToTop();
 
+    // Recriar partículas periodicamente para efeito dinâmico
     setInterval(() => {
         createAdvancedParticles();
     }, 15000); // A cada 15 segundos
 });
 
+// CSS adicional para animações
 const additionalCSS = `
     @keyframes pulse {
         0% { transform: scale(1); }
@@ -604,7 +633,7 @@ const additionalCSS = `
     }
 `;
 
+// Adicionar CSS dinâmico
 const additionalStyle = document.createElement('style');
 additionalStyle.textContent = additionalCSS;
-
 document.head.appendChild(additionalStyle);
